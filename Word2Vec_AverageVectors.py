@@ -94,6 +94,13 @@ if __name__ == '__main__':
     test = pd.read_csv(os.path.join(os.path.dirname(__file__), 'data', 'testData.tsv'), header=0, delimiter="\t", quoting=3 )
     unlabeled_train = pd.read_csv( os.path.join(os.path.dirname(__file__), 'data', "unlabeledTrainData.tsv"), header=0,  delimiter="\t", quoting=3 )
 
+    print('shape of labeledTrain data')
+    print(train.info())
+    print('\nshape of unlabeledTrain data')
+    print(test.info())
+    print('\nshape of test data')
+    print(test.info())
+
     # Verify the number of reviews that were read (100,000 in total)
     print "Read %d labeled train reviews, %d labeled test reviews, " \
      "and %d unlabeled reviews\n" % (train["review"].size,

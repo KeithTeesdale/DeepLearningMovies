@@ -15,6 +15,7 @@ from sklearn.ensemble import RandomForestClassifier
 from KaggleWord2VecUtility import KaggleWord2VecUtility
 import pandas as pd
 import numpy as np
+import nltk
 
 if __name__ == '__main__':
     train = pd.read_csv(os.path.join(os.path.dirname(__file__), 'data', 'labeledTrainData.tsv'), header=0, \
@@ -22,13 +23,18 @@ if __name__ == '__main__':
     test = pd.read_csv(os.path.join(os.path.dirname(__file__), 'data', 'testData.tsv'), header=0, delimiter="\t", \
                    quoting=3 )
 
-    print 'The first review is:'
-    print train["review"][0]
+    print('shape of training data')
+    print(train.info())
+    print('\nshape of test data')
+    print(test.info())
+
+    print('The first review is:')
+    print(train["review"][0])
 
     raw_input("Press Enter to continue...")
 
 
-    print 'Download text data sets. If you already have NLTK datasets downloaded, just close the Python download window...'
+    print('Download text data sets. If you already have NLTK datasets downloaded, just close the Python download window...')
     #nltk.download()  # Download text data sets, including stop words
 
     # Initialize an empty list to hold the clean reviews
@@ -37,14 +43,14 @@ if __name__ == '__main__':
     # Loop over each review; create an index i that goes from 0 to the length
     # of the movie review list
 
-    print "Cleaning and parsing the training set movie reviews...\n"
+    print("Cleaning and parsing the training set movie reviews...\n")
     for i in xrange( 0, len(train["review"])):
         clean_train_reviews.append(" ".join(KaggleWord2VecUtility.review_to_wordlist(train["review"][i], True)))
 
 
     # ****** Create a bag of words from the training set
     #
-    print "Creating the bag of words...\n"
+    print("Creating the bag of words...\n")
 
 
     # Initialize the "CountVectorizer" object, which is scikit-learn's
@@ -64,6 +70,7 @@ if __name__ == '__main__':
     # Numpy arrays are easy to work with, so convert the result to an
     # array
     np.asarray(train_data_features)
+    print(train_data_features.info())
 
     # ******* Train a random forest using the bag of words
     #
