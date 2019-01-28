@@ -15,7 +15,7 @@ from sklearn.ensemble import RandomForestClassifier
 from KaggleWord2VecUtility import KaggleWord2VecUtility
 import pandas as pd
 import numpy as np
-import nltk
+#import nltk
 
 if __name__ == '__main__':
     train = pd.read_csv(os.path.join(os.path.dirname(__file__), 'data', 'labeledTrainData.tsv'), header=0, \
@@ -23,13 +23,12 @@ if __name__ == '__main__':
     test = pd.read_csv(os.path.join(os.path.dirname(__file__), 'data', 'testData.tsv'), header=0, delimiter="\t", \
                    quoting=3 )
 
-    print('shape of training data')
-    print(train.info())
-    print('\nshape of test data')
-    print(test.info())
-
-    print('The first review is:')
-    print(train["review"][0])
+    #print('shape of training data')
+    #print(train.info())
+    #print('\nshape of test data')
+    #print(test.info())
+    #print('The first review is:')
+    #print(train["review"][0])
 
     raw_input("Press Enter to continue...")
 
@@ -70,7 +69,7 @@ if __name__ == '__main__':
     # Numpy arrays are easy to work with, so convert the result to an
     # array
     np.asarray(train_data_features)
-    print(train_data_features.info())
+    #print(train_data_features.info())
 
     # ******* Train a random forest using the bag of words
     #

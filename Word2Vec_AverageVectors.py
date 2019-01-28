@@ -96,7 +96,7 @@ if __name__ == '__main__':
 
     print('shape of labeledTrain data')
     print(train.info())
-    print('\nshape of unlabeledTrain data')
+    print('\nshape of unlabeledTrainData data')
     print(test.info())
     print('\nshape of test data')
     print(test.info())
